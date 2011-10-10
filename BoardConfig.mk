@@ -115,6 +115,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/epic4gtouch/recovery/recovery_ui.c
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_HAS_SDCARD_INTERNAL := true
 
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/epic4gtouch/shbootimg.mk
 
