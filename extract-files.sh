@@ -14,6 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# If you are on a not on a nightly build and compiling Cyanogenmod for 
+# the first time you will need to flash the proprietary.zip under 
+# /epic4gtouch/proprietary before continuing.
+
 DEVICE=epic4gtouch
 COMMON=c1-common
 MANUFACTURER=samsung
@@ -29,10 +33,10 @@ mkdir -p ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars
 mkdir -p ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi
 mkdir -p ../../../vendor/$MANUFACTURER/$COMMON/proprietary/offmode_charging
 
-# galaxys2spr
+# epic4gtouch
 
 
-# c1-spr
+# c1-common
 adb pull /system/lib/libActionShot.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/libActionShot.so
 adb pull /system/lib/libakm.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/libakm.so
 adb pull /system/lib/libarccamera.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/libarccamera.so
@@ -71,7 +75,7 @@ adb pull /system/lib/libtvout.so ../../../vendor/$MANUFACTURER/$COMMON/proprieta
 adb pull /system/bin/BCM4330B1_002.001.003.0221.0262.hcd ../../../vendor/$MANUFACTURER/$COMMON/proprietary/BCM4330B1_002.001.003.0221.0262.hcd
 adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$COMMON/proprietary/rild
 adb pull /system/bin/tvoutserver ../../../vendor/$MANUFACTURER/$COMMON/proprietary/tvoutserver
-adb pull /system/cameradata/datapattern_front_420sp.yuv ../../../vendor/$MANUFACTURER/$COMMON/proprietary/cameradata/datapattern_front_420sp.yuv
+adb pull /system/cameradata/datapattern_420sp.yuv ../../../vendor/$MANUFACTURER/$COMMON/proprietary/cameradata/datapattern_420sp.yuv
 adb pull /system/cameradata/datapattern_front_420sp.yuv ../../../vendor/$MANUFACTURER/$COMMON/proprietary/cameradata/datapattern_front_420sp.yuv
 adb pull /system/lib/egl/libEGL_mali.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/egl/libEGL_mali.so
 adb pull /system/lib/egl/libGLES_android.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/egl/libGLES_android.so
@@ -84,18 +88,18 @@ adb pull /system/etc/firmware/RS_M5LS_TB.bin ../../../vendor/$MANUFACTURER/$COMM
 adb pull /system/vendor/firmware/mfc_fw.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/firmware/mfc_fw.bin
 adb pull /system/lib/hw/acoustics.default.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/acoustics.default.so
 adb pull /system/lib/hw/alsa.default.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/alsa.default.so
-adb pull /system/lib/hw/copybit.SPH-D710.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/copybit.SPH-D710.so
+adb pull /system/lib/hw/copybit.smdkv310.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/copybit.SPH-D710.so
 adb pull /system/lib/hw/vendor-gps.smdkv310.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/gps.SPH-D710.so
 adb pull /system/lib/hw/gralloc.default.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/gralloc.default.so
-adb pull /system/lib/hw/gralloc.SPH-D710.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/gralloc.SPH-D710.so
+adb pull /system/lib/hw/gralloc.smdkv310.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary/hw/gralloc.SPH-D710.so
 adb pull /system/usr/keychars/Broadcom_Bluetooth_HID.kcm.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars/Broadcom_Bluetooth_HID.kcm.bin
 adb pull /system/usr/keychars/qwerty2.kcm.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars/qwerty2.kcm.bin
 adb pull /system/usr/keychars/qwerty.kcm.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars/qwerty.kcm.bin
 adb pull /system/usr/keychars/sec_key.kcm.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars/sec_key.kcm.bin
 adb pull /system/usr/keychars/sec_touchkey.kcm.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/keychars/sec_touchkey.kcm.bin
-adb pull /system/etc/wifi/bcm4330_aps.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_aps.bin
-adb pull /system/etc/wifi/bcm4330_mfg.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_mfg.bin
-adb pull /system/etc/wifi/bcm4330_sta.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_sta.bin
+adb pull /system/vendor/firmware/bcm4330_aps.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_aps.bin
+adb pull /system/vendor/firmware/bcm4330_mfg.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_mfg.bin
+adb pull /system/vendor/firmware/bcm4330_sta.bin ../../../vendor/$MANUFACTURER/$COMMON/proprietary/wifi/bcm4330_sta.bin
 adb pull /system/bin/alsa_amixer ../../../vendor/$MANUFACTURER/$COMMON/proprietary/audio/alsa_amixer
 adb pull /system/bin/alsa_aplay ../../../vendor/$MANUFACTURER/$COMMON/proprietary/audio/alsa_aplay
 adb pull /system/bin/alsa_ctl ../../../vendor/$MANUFACTURER/$COMMON/proprietary/audio/alsa_ctl
@@ -167,7 +171,7 @@ adb pull /system/media/Disconnected.qmg ../../../vendor/$MANUFACTURER/$COMMON/pr
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
 
-# All the blobs necessary for galaxys2spr devices
+# All the blobs necessary for epic4gtouch devices
 PRODUCT_COPY_FILES += \\
 
 EOF
@@ -197,7 +201,7 @@ PRODUCT_COPY_FILES := \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/audio/libmediayamahaservice.so:obj/lib/libmediayamahaservice.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/audio/libaudiopolicy.so:obj/lib/libaudiopolicy.so
 
-# All the blobs necessary for galaxys2spr devices
+# All the blobs necessary for epic4gtouch devices
 PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libActionShot.so:system/lib/libActionShot.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libakm.so:system/lib/libakm.so \\
@@ -241,7 +245,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/tvoutserver:system/bin/tvoutserver
 
 PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__COMMON__/proprietary/cameradata/datapattern_front_420sp.yuv:system/cameradata/datapattern_front_420sp.yuv \\
+    vendor/__MANUFACTURER__/__COMMON__/proprietary/cameradata/datapattern_420sp.yuv:system/cameradata/datapattern_420sp.yuv \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/cameradata/datapattern_front_420sp.yuv:system/cameradata/datapattern_front_420sp.yuv
 
 PRODUCT_COPY_FILES += \\
