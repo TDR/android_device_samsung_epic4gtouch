@@ -2,7 +2,7 @@
 4
 1
 
-0
+1
 4
 /system/etc/audio/Tx_ControlParams_EARPIECE_WIDEBAND.txt
 /system/etc/audio/Tx_ControlParams_SPEAKER_WIDEBAND.txt
@@ -25,7 +25,7 @@
 0
 0
 
-1
+0
 0
 /data/LVVEFS_Tx_Status.bin
 
@@ -49,7 +49,7 @@
 2048
 /data/WhiteNoise.pcm
 
-0
+1				
 2048
 /data/Tx_out.pcm
 
